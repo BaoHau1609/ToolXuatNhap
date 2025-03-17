@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>Nhập xuất tồn</title>
+</head>
+<body>
+    <div class="container">
+        <h2 class="title">NHẬP XUẤT TỒN</h2>
+        <div class="section-1">
+            
+            <div class="input-item">
+                <h4>Ngày</h4>
+                <input type="date" id="date"/>
+            </div>
+    
+            <div class="input-item">
+                <h4>Mã hàng</h4>
+                
+                <!-- <label for="searchInput">Nhập sản phẩm:</label> -->
+                <input type="text" id="searchInput" autocomplete="off" />
+                <div id="suggestions"></div>
+            </div>
+
+            <!-- <div class="input-item" id="anNhaCungCap">
+                <h4>Nhập NCC</h4>
+                <input type="number" id="nhaCungCap"/>
+            </div> -->
+
+            <div class="input-item">
+                <h4>Giá nhập</h4>
+                <input type="number" id="giaNhap" step="100"/>
+                <!-- <h4>Giá bán</h4>
+                <input type="number" id="giaBan"/> -->
+            </div>
+
+            <div class="input-item">
+                <!-- <h4>Giá nhập</h4>
+                <input type="number" id="giaNhap" style="margin-bottom: 10px;"/> -->
+                <h4>Giá bán</h4>
+                <input type="number" id="giaBan" step="100"/>
+            </div>
+    
+    
+            <div class="input-item">
+                <h4 onclick="showItem(1)">Ghi chú</h4>
+                <input type="text" id="ghiChu"/>
+            </div>
+        </div>
+        <div class="section-2">
+            <div class="input-item">
+                <p onclick="showChosen()">Chọn loại giao dịch</p>
+                <p onclick="showItem(1)" id="abc">Nhập nhà cung cấp</p>
+                <p onclick="showItem(2)" id="abc1">Xuất đóng gói</p>
+                <p onclick="showItem(3)" id="abc2">Xuất thành phẩm</p>
+                <p onclick="showItem(4)" id="abc3">Xuất xá bán</p>
+                <p onclick="showItem(5)" id="abc4">Xuất hủy</p>
+            </div>
+            <div class="input-item" id="anNhaCungCap">
+                <h4>Nhập NCC</h4>
+                <input type="number" id="nhaCungCap"/>
+            </div>
+
+            <div class="input-item" id="anXuatDongGoi">
+                <h4>Xuất đóng gói</h4>
+                <input type="number" id="xuatDongGoi"/>
+            </div>
+
+            <div class="input-item" id="anXuatThanhPham">
+                <h4>Xuất thành phẩm</h4>
+                <input type="number" id="xuatThanhPham"/>
+            </div>
+
+            <div class="input-item" id="anXuatXaBan">
+                <h4>Xuất xá bán</h4>
+                <input type="number" id="xuatXaBan"/>
+            </div>
+
+            <div class="input-item" id="anXuatHuy">
+                <h4>Xuất hủy</h4>
+                <input type="number" id="xuatHuy"/>
+            </div>
+
+        </div>
+        <div class="updateButton">
+            <button class="button-item" onclick="updateData()">Cập nhật Google Sheet</button>
+        </div>
+        <div class="input-item updateButton" id="logo">
+            <img src="./assets/img/logo.jpg" alt="logo" style="height: 150px; width:150px;"/>
+        </div>
+        
+    </div>
+
+
+    <!-- <py-script> print('Hello, World!') </py-script> -->
+    <script src="./assets/js/index.js"></script>
+</body>
+</html>

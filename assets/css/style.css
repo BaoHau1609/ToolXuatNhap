@@ -1,0 +1,120 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: .3s ease-in-out;
+}
+
+html {
+    /* Ẩn thanh cuộn */
+    overflow-x: hidden; 
+    scroll-behavior: smooth;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+    background-color: #43d6a3;
+    height: 100vh;
+    
+}
+
+.section-1{
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+}
+
+.title{
+    text-align: center;
+    /* justify-content: center; */
+    color: white;
+    background-color: green;
+    padding: 10px;
+}
+
+.input-item{
+    padding: 20px;
+    justify-items: center;
+    /* max-width: 200px; */
+}
+
+input{
+    /* max-width: 100px; */
+}
+
+.updateButton{
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+
+}
+
+.button-item{
+    padding: 5px;
+    justify-items: center;
+}
+
+#maHang {
+    max-height: 150px;
+    overflow-y: auto; /* Thêm thanh cuộn dọc */
+}
+
+#suggestions {
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+    display: none;
+    position: absolute;
+    background-color: white;
+    z-index: 1;
+}
+
+.suggestion-item {
+    /* padding: 8px; */
+    cursor: pointer;
+}
+
+.suggestion-item:hover {
+    background-color: #f0f0f0;
+}
+
+#anNhaCungCap, #anXuatThanhPham, #anXuatHuy, #anXuatDongGoi, #anXuatXaBan{
+    display: none;
+}
+
+#abc, #abc1, #abc2, #abc3, #abc4{
+    display: none;
+}
+
+#abc:hover, #abc1:hover, #abc2:hover, #abc3:hover, #abc4:hover{
+    background-color: aqua;
+}
+
+.section-2{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+}
+
+.section-2-item{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 475px) {
+    .section-1{
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        justify-content: center;
+    }
+
+    .input-item{
+        padding: 10px;
+        justify-items: center;
+    }
+}
