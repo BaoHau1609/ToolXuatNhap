@@ -932,6 +932,28 @@ async function updateData() {
   const ghiChu = await document.getElementById("ghiChu").value;
   const userName = await document.getElementById("username").value;
 
+  // Lấy ngày giờ hiện tại
+  const currentDateTime = await new Date();
+
+  // Lấy ngày, tháng, năm
+  const day = currentDateTime.getDate();
+  const month = currentDateTime.getMonth() + 1; // Tháng bắt đầu từ 0
+  const year = currentDateTime.getFullYear();
+
+  // Lấy giờ, phút, giây
+  const hours = currentDateTime.getHours();
+  const minutes = currentDateTime.getMinutes();
+  const seconds = currentDateTime.getSeconds();
+
+  // Định dạng ngày giờ
+  const formattedDateTime = `${day.toString().padStart(2, "0")}/${month
+    .toString()
+    .padStart(2, "0")}/${year} ${hours.toString().padStart(2, "0")}:${minutes
+    .toString()
+    .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+
+  console.log("Ngày giờ hiện tại:", formattedDateTime);
+
   if (date === "") {
     alert("Lỗi: Vui lòng chọn ngày!");
     return;
@@ -958,6 +980,7 @@ async function updateData() {
     // giaBan: giaBan,
     ghiChu: ghiChu,
     userName: userName,
+    time: formattedDateTime,
   };
 
   console.log(data);
