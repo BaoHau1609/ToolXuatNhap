@@ -52,6 +52,13 @@ html {
 
 }
 
+.updateButton-3{
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+
+}
+
 .updateButton1{
     display: flex;
     justify-items: center;
