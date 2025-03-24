@@ -930,6 +930,7 @@ async function updateData() {
   // const giaNhap = await document.getElementById("giaNhap").value;
   // const giaBan = await document.getElementById("giaBan").value;
   const ghiChu = await document.getElementById("ghiChu").value;
+  const userName = await document.getElementById("username").value;
 
   if (date === "") {
     alert("Lỗi: Vui lòng chọn ngày!");
@@ -956,6 +957,7 @@ async function updateData() {
     // giaNhap: giaNhap,
     // giaBan: giaBan,
     ghiChu: ghiChu,
+    userName: userName,
   };
 
   console.log(data);
@@ -969,7 +971,45 @@ async function updateData() {
   })
     .then(() => {
       alert("Dữ liệu đã được thêm vào Google Sheets!");
-      window.location.reload();
+      // window.location.reload();
+      document.getElementById("date").value = "";
+
+      document.getElementById("searchInput").value = "";
+
+      document.getElementById("searchInput1").value = "";
+
+      document.getElementById("nhaCungCap").value = "";
+
+      document.getElementById("xuatDongGoi").value = "";
+      document.getElementById("xuatThanhPham").value = "";
+      document.getElementById("xuatXaBan").value = "";
+      document.getElementById("xuatHuy").value = "";
+      // document.getElementById("giaNhap").value;
+      // document.getElementById("giaBan").value;
+      document.getElementById("ghiChu").value = "";
     })
     .catch(() => alert("Lỗi khi gửi dữ liệu!"));
+}
+
+async function login() {
+  const username = await document.getElementById("username").value;
+  const password = await document.getElementById("password").value;
+  console.log(username);
+  if (
+    (username === "kho.dkhanh" && password === "dkhanh123456") ||
+    (username === "kho.bhuy" && password === "bhuy111111") ||
+    (username === "kho.bhoang" && password === "bhoang111122") ||
+    (username === "kho.cminh" && password === "cminh333666") ||
+    (username === "kho.txuan" && password === "txuan999030")
+  ) {
+    alert("Đăng nhập thành công!");
+    document.getElementById("section-login-off").style.display = "none";
+    document.getElementById("loginButton1").style.display = "none";
+
+    document.getElementById("section-login-on-1").style.display = "flex";
+    document.getElementById("section-login-on-2").style.display = "flex";
+    document.getElementById("updateButton").style.display = "flex";
+  } else {
+    alert("Sai tên đăng nhập hoặc mật khẩu!");
+  }
 }

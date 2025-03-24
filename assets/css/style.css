@@ -19,8 +19,14 @@ html {
     
 }
 
-.section-1{
+.section-login{
     display: flex;
+    justify-items: center;
+    justify-content: center;
+}
+
+.section-1{
+    display: none;
     justify-items: center;
     justify-content: center;
 }
@@ -39,15 +45,17 @@ html {
     /* max-width: 200px; */
 }
 
-input{
-    /* max-width: 100px; */
-}
-
 .updateButton{
-    display: flex;
+    display: none;
     justify-items: center;
     justify-content: center;
 
+}
+
+.updateButton1{
+    display: flex;
+    justify-items: center;
+    justify-content: center;
 }
 
 .button-item{
@@ -112,7 +120,7 @@ input{
 }
 
 .section-2{
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-items: center;
     justify-content: center;
@@ -135,10 +143,9 @@ input{
     align-items: center; 
 }
 
-
 @media (max-width: 475px) {
     .section-1{
-        display: flex;
+        display: none;
         flex-direction: column;
         justify-items: center;
         justify-content: center;
@@ -147,5 +154,12 @@ input{
     .input-item{
         padding: 10px;
         justify-items: center;
+    }
+
+    .section-login{
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        justify-content: center;
     }
 }

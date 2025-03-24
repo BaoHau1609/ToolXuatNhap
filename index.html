@@ -12,7 +12,22 @@
 <body>
     <div class="container">
         <h2 class="title">NHẬP XUẤT TỒN</h2>
-        <div class="section-1">
+        <div class="section-login" id="section-login-off">
+            <div class="input-item">
+                <h4>Tên đăng nhập</h4>
+                <input type="text" id="username" placeholder="Tên đăng nhập"/>
+            </div>
+            <div class="input-item">
+                <h4>Mật khẩu</h4>
+                <input type="password" id="password" placeholder="Mật khẩu"/>
+            </div>
+        </div>
+
+        <div class="input-item updateButton1" id="loginButton1">
+            <button class="button-item" onclick="login()">Đăng nhập</button>
+        </div>
+
+        <div class="section-1" id="section-login-on-1">
             
             <div class="input-item">
                 <h4>Ngày</h4>
@@ -49,7 +64,7 @@
                 <input type="text" id="ghiChu"/>
             </div>
         </div>
-        <div class="section-2">
+        <div class="section-2" id="section-login-on-2">
             <div class="input-item">
                 <p onclick="showChosen()" id="transaction" style="background-color: white;"><i style="display: inline-flex; gap: 5px; color: rgb(66, 71, 132);">Chọn loại giao dịch<img src="./assets/icons/down-arrow.svg" alt="Icon SVG" style="width: 20px; height:20px;"/> </i></p>
                 <p onclick="showItem(1)" id="abc">Nhập nhà cung cấp</p>
@@ -84,7 +99,7 @@
             </div>
 
         </div>
-        <div class="updateButton">
+        <div class="updateButton" id="updateButton">
             <button class="button-item" onclick="updateData()">Cập nhật Google Sheet</button>
         </div>
         <div class="input-item updateButton" id="logo">
