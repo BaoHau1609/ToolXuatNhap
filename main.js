@@ -1,3 +1,32 @@
+const fs = require("fs");
+
+// Hàm đọc file CSV và lấy dữ liệu từ cột "Mã hàng"
+function readCSVFile(filePath) {
+  const data = fs.readFileSync(filePath, "utf8"); // Đọc file
+  const lines = data.split("\n"); // Tách từng dòng
+  const headers = lines[0].split(","); // Lấy tiêu đề cột
+  const colIndex = headers.indexOf("Mã hàng"); // Tìm vị trí cột "Mã hàng"
+
+  if (colIndex === -1) {
+    console.error("Không tìm thấy cột 'Mã hàng'");
+    return [];
+  }
+
+  // Lọc dữ liệu từ cột "Mã hàng"
+  const mH = lines
+    .slice(1) // Bỏ dòng tiêu đề
+    .map((line) => line.split(",")[colIndex]?.trim()) // Lấy giá trị từ cột
+    .filter((value) => value); // Loại bỏ giá trị rỗng
+
+  return mH;
+}
+
+// Đọc file CSV và lấy dữ liệu
+const filePath = "./assets/data/maHang.csv"; // Đổi thành đường dẫn file CSV của bạn
+const mH = readCSVFile(filePath);
+
+console.log(mH); // In ra kết quả
+
 const mH = [
   "Baby Cải bẹ xanh 300g",
   "Baby Cải ngọt 300g",
@@ -678,298 +707,3 @@ const mH = [
   "Dưa lưới Huỳnh Long",
   "Mãng cầu Xiêm",
 ];
-
-const searchInput = document.getElementById("searchInput");
-const suggestions = document.getElementById("suggestions");
-
-searchInput.addEventListener("input", () => {
-  const query = searchInput.value.toLowerCase();
-  suggestions.innerHTML = "";
-  if (query) {
-    const filteredItems = mH.filter((item) =>
-      item.toLowerCase().includes(query)
-    );
-    if (filteredItems.length > 0) {
-      suggestions.style.display = "block";
-      filteredItems.forEach((item) => {
-        const div = document.createElement("div");
-        div.className = "suggestion-item";
-        div.textContent = item;
-        div.addEventListener("click", () => {
-          searchInput.value = item;
-          suggestions.innerHTML = "";
-          suggestions.style.display = "none";
-        });
-        suggestions.appendChild(div);
-      });
-    } else {
-      suggestions.style.display = "none";
-    }
-  } else {
-    suggestions.style.display = "none";
-  }
-});
-
-// const change = document.getElementById("changeEvent");
-
-const position = [
-  "RA : 1 - 2",
-  "RA : 1 - 3",
-  "RA : 1 - 4",
-  "RA : 1 - 5",
-  "RA : 1 - 6",
-  "RA : 2 - 1",
-  "RA : 2 - 2",
-  "RA : 2 - 3",
-  "RA : 2 - 4",
-  "RA : 2 - 5",
-  "RA : 2 - 6",
-  "RA : 3 - 1",
-  "RA : 3 - 2",
-  "RA : 3 - 3",
-  "RA : 3 - 4",
-  "RA : 3 - 5",
-  "RA : 3 - 6",
-  "RA : 4 - 1",
-  "RA : 4 - 2",
-  "RA : 4 - 3",
-  "RA : 4 - 4",
-  "RA : 4 - 5",
-  "RA : 4 - 6",
-  "RB : 1 -  1",
-  "RB : 1 -  2",
-  "RB : 1 -  3",
-  "RB : 1 -  4",
-  "RB : 1 -  5",
-  "RB : 1 -  6",
-  "RB : 2 -  1",
-  "RB : 2 -  2",
-  "RB : 2 -  3",
-  "RB : 2 -  4",
-  "RB : 2 -  5",
-  "RB : 2 -  6",
-  "RB : 3 -  1",
-  "RB : 3 -  2",
-  "RB : 3 -  3",
-  "RB : 3 -  4",
-  "RB : 3 -  5",
-  "RB : 3 -  6",
-  "RB : 4 -  1",
-  "RB : 4 -  2",
-  "RB : 4 -  3",
-  "RB : 4 -  4",
-  "RB : 4 -  5",
-  "RB : 4 -  6",
-  "RC : 1 - 1",
-  "RC : 1 - 2",
-  "RC : 1 - 3",
-  "RC : 1 - 4",
-  "RC : 1 - 5",
-  "RC : 1 - 6",
-  "RC : 2 - 1",
-  "RC : 2 - 2",
-  "RC : 2 - 3",
-  "RC : 2 - 4",
-  "RC : 2 - 5",
-  "RC : 2 - 6",
-  "RC : 3 - 1",
-  "RC : 3 - 2",
-  "RC : 3 - 3",
-  "RC : 3 - 4",
-  "RC : 3 - 5",
-  "RC : 3 - 6",
-  "RC : 4 - 1",
-  "RC : 4 - 2",
-  "RC : 4 - 3",
-  "RC : 4 - 4",
-  "RC : 4 - 5",
-  "RC : 4 - 6",
-  "PLA : 1 - 6",
-  "PLA : 2 - 6",
-  "PLA : 3 - 6",
-  "PLA : 4 - 6",
-  "PLA : 5 - 6",
-  "PLA : 6 - 6",
-  "PLB : 1 - 5",
-  "PLB : 2 - 5",
-  "PLB : 3 - 5",
-  "PLB : 4 - 5",
-  "PLB : 4- 5",
-  "PLC : 1 - 6",
-  "PLC : 2 - 6",
-  "PLC : 3 - 6",
-  "PLC : 4 - 6",
-  "PLC : 5 - 6",
-  "PLC : 6 - 6",
-  "TLN",
-  "TLL",
-  "PLD: 1-4",
-  "PLD: 2-4",
-  "PLD: 3-4",
-  "PLD: 4-4",
-  "PLD: 5-5",
-  "PLE: 1-1",
-  "PLE: 1-2",
-  "PLE: 1-3",
-  "PLE: 1-4",
-  "PLF: 1-1",
-  "PLF: 1-2",
-  "PLF: 1-3",
-  "KVB",
-  "KVN",
-  "KVHL",
-  "pl-1ao",
-];
-
-const searchInput1 = document.getElementById("searchInput1");
-const suggestions1 = document.getElementById("suggestions1");
-
-searchInput1.addEventListener("input", () => {
-  const query = searchInput1.value.toLowerCase();
-  suggestions1.innerHTML = "";
-  if (query) {
-    const filteredItems = position.filter((item) =>
-      item.toLowerCase().includes(query)
-    );
-    if (filteredItems.length > 0) {
-      suggestions1.style.display = "block";
-      filteredItems.forEach((item) => {
-        const div = document.createElement("div");
-        div.className = "suggestion-item1";
-        div.textContent = item;
-        div.addEventListener("click", () => {
-          searchInput1.value = item;
-          suggestions1.innerHTML = "";
-          suggestions1.style.display = "none";
-        });
-        suggestions1.appendChild(div);
-      });
-    } else {
-      suggestions1.style.display = "none";
-    }
-  } else {
-    suggestions1.style.display = "none";
-  }
-});
-
-function showItem(x) {
-  n1 = document.getElementById("anNhaCungCap");
-  n2 = document.getElementById("anXuatDongGoi");
-  n3 = document.getElementById("anXuatThanhPham");
-  n4 = document.getElementById("anXuatXaBan");
-  n5 = document.getElementById("anXuatHuy");
-
-  if (x === 1) {
-    n1.style.display = "block";
-    n2.style.display = "none";
-    n3.style.display = "none";
-    n4.style.display = "none";
-    n5.style.display = "none";
-    event.stopPropagation();
-  } else if (x === 2) {
-    n1.style.display = "none";
-    n2.style.display = "block";
-    n3.style.display = "none";
-    n4.style.display = "none";
-    n5.style.display = "none";
-    event.stopPropagation();
-  } else if (x === 3) {
-    n1.style.display = "none";
-    n2.style.display = "none";
-    n3.style.display = "block";
-    n4.style.display = "none";
-    n5.style.display = "none";
-    event.stopPropagation();
-  } else if (x === 4) {
-    n1.style.display = "none";
-    n2.style.display = "none";
-    n3.style.display = "none";
-    n4.style.display = "block";
-    n5.style.display = "none";
-    event.stopPropagation();
-  } else if (x === 5) {
-    n1.style.display = "none";
-    n2.style.display = "none";
-    n3.style.display = "none";
-    n4.style.display = "none";
-    n5.style.display = "block";
-    event.stopPropagation();
-  }
-}
-
-function showChosen() {
-  if (document.getElementById("abc").style.display === "none") {
-    document.getElementById("abc").style.display = "block";
-    document.getElementById("abc1").style.display = "block";
-    document.getElementById("abc2").style.display = "block";
-    document.getElementById("abc3").style.display = "block";
-    document.getElementById("abc4").style.display = "block";
-  } else {
-    document.getElementById("abc").style.display = "none";
-    document.getElementById("abc1").style.display = "none";
-    document.getElementById("abc2").style.display = "none";
-    document.getElementById("abc3").style.display = "none";
-    document.getElementById("abc4").style.display = "none";
-  }
-}
-
-async function updateData() {
-  const date = await document.getElementById("date").value;
-
-  const maHang = await document.getElementById("searchInput").value;
-
-  const viTri = await document.getElementById("searchInput1").value;
-  console.log(viTri);
-
-  const nhaCungCap = await document.getElementById("nhaCungCap").value;
-
-  const xuatDongGoi = await document.getElementById("xuatDongGoi").value;
-  const xuatThanhPham = await document.getElementById("xuatThanhPham").value;
-  const xuatXaBan = await document.getElementById("xuatXaBan").value;
-  const xuatHuy = await document.getElementById("xuatHuy").value;
-  // const giaNhap = await document.getElementById("giaNhap").value;
-  // const giaBan = await document.getElementById("giaBan").value;
-  const ghiChu = await document.getElementById("ghiChu").value;
-
-  if (date === "") {
-    alert("Lỗi: Vui lòng chọn ngày!");
-    return;
-  }
-  if (maHang === "") {
-    alert("Lỗi: Vui lòng chọn mã hàng!");
-    return;
-  }
-  if (viTri === "") {
-    alert("Lỗi: Vui lòng chọn vị trí!");
-    return;
-  }
-
-  var data = {
-    ngay: date,
-    maHang: maHang,
-    nhaCungCap: nhaCungCap,
-    xuatDongGoi: xuatDongGoi,
-    xuatThanhPham: xuatThanhPham,
-    xuatXaBan: xuatXaBan,
-    xuatHuy: xuatHuy,
-    viTri: viTri,
-    // giaNhap: giaNhap,
-    // giaBan: giaBan,
-    ghiChu: ghiChu,
-  };
-
-  console.log(data);
-  var url =
-    "https://script.google.com/macros/s/AKfycbxAmRA0ODs4Ft-MPnl85Sxxt0D0mtg0a--NqXSTOokhXFQ5euwJd9Efg9k-A9c81RLE/exec";
-  fetch(url, {
-    method: "POST",
-    mode: "no-cors", // Bỏ CORS
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  })
-    .then(() => {
-      alert("Dữ liệu đã được thêm vào Google Sheets!");
-      window.location.reload();
-    })
-    .catch(() => alert("Lỗi khi gửi dữ liệu!"));
-}

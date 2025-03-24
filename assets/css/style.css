@@ -79,12 +79,32 @@ input{
     background-color: #f0f0f0;
 }
 
+#suggestions1 {
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+    display: none;
+    position: absolute;
+    background-color: white;
+    z-index: 1;
+}
+
+.suggestion-item1 {
+    /* padding: 8px; */
+    cursor: pointer;
+}
+
+.suggestion-item1:hover {
+    background-color: #f0f0f0;
+}
+
 #anNhaCungCap, #anXuatThanhPham, #anXuatHuy, #anXuatDongGoi, #anXuatXaBan{
     display: none;
 }
 
 #abc, #abc1, #abc2, #abc3, #abc4{
     display: none;
+    padding: 10px;
 }
 
 #abc:hover, #abc1:hover, #abc2:hover, #abc3:hover, #abc4:hover{
@@ -104,6 +124,17 @@ input{
     justify-items: center;
     justify-content: center;
 }
+
+#transaction{
+    border: 1px;
+    z-index: 999999;
+    padding: 10px;
+    color: rgb(66, 71, 132);
+    border-style: solid double;
+    font-weight: bold;
+    align-items: center; 
+}
+
 
 @media (max-width: 475px) {
     .section-1{

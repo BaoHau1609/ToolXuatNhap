@@ -22,29 +22,26 @@
             <div class="input-item">
                 <h4>Mã hàng</h4>
                 
-                <!-- <label for="searchInput">Nhập sản phẩm:</label> -->
                 <input type="text" id="searchInput" autocomplete="off" />
                 <div id="suggestions"></div>
             </div>
 
-            <!-- <div class="input-item" id="anNhaCungCap">
-                <h4>Nhập NCC</h4>
-                <input type="number" id="nhaCungCap"/>
-            </div> -->
-
             <div class="input-item">
+                <h4>Vị trí</h4>
+                
+                <input type="text" id="searchInput1" autocomplete="off" />
+                <div id="suggestions1"></div>
+            </div>
+
+            <!-- <div class="input-item">
                 <h4>Giá nhập</h4>
                 <input type="number" id="giaNhap" step="100"/>
-                <!-- <h4>Giá bán</h4>
-                <input type="number" id="giaBan"/> -->
             </div>
 
             <div class="input-item">
-                <!-- <h4>Giá nhập</h4>
-                <input type="number" id="giaNhap" style="margin-bottom: 10px;"/> -->
                 <h4>Giá bán</h4>
                 <input type="number" id="giaBan" step="100"/>
-            </div>
+            </div> -->
     
     
             <div class="input-item">
@@ -54,7 +51,7 @@
         </div>
         <div class="section-2">
             <div class="input-item">
-                <p onclick="showChosen()">Chọn loại giao dịch</p>
+                <p onclick="showChosen()" id="transaction" style="background-color: white;"><i style="display: inline-flex; gap: 5px; color: rgb(66, 71, 132);">Chọn loại giao dịch<img src="./assets/icons/down-arrow.svg" alt="Icon SVG" style="width: 20px; height:20px;"/> </i></p>
                 <p onclick="showItem(1)" id="abc">Nhập nhà cung cấp</p>
                 <p onclick="showItem(2)" id="abc1">Xuất đóng gói</p>
                 <p onclick="showItem(3)" id="abc2">Xuất thành phẩm</p>
@@ -96,8 +93,6 @@
         
     </div>
 
-
-    <!-- <py-script> print('Hello, World!') </py-script> -->
     <script src="./assets/js/index.js"></script>
 </body>
 </html>
