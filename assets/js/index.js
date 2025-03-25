@@ -931,6 +931,7 @@ async function updateData() {
   // const giaBan = await document.getElementById("giaBan").value;
   const ghiChu = await document.getElementById("ghiChu").value;
   const userName = await document.getElementById("username").value;
+  const dateXuat = await document.getElementById("dateXuat").value;
 
   // Lấy ngày giờ hiện tại
   const currentDateTime = await new Date();
@@ -967,6 +968,18 @@ async function updateData() {
     return;
   }
 
+  if (
+    xuatDongGoi !== "" ||
+    xuatThanhPham !== "" ||
+    xuatXaBan !== "" ||
+    xuatHuy !== ""
+  ) {
+    if (dateXuat === "") {
+      alert("Lỗi: Vui lòng chọn ngày xuất!");
+      return;
+    }
+  }
+
   var data = {
     ngay: date,
     maHang: maHang,
@@ -981,6 +994,7 @@ async function updateData() {
     ghiChu: ghiChu,
     userName: userName,
     time: formattedDateTime,
+    dateXuat: dateXuat,
   };
 
   console.log(data);
