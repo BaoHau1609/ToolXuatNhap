@@ -1031,7 +1031,7 @@ async function updateData() {
       alert("Dữ liệu đã được thêm vào Google Sheets!");
       // window.location.reload();
       document.getElementById("date").value = "";
-
+      document.getElementById("dateXuat").value = "";
       document.getElementById("searchInput").value = "";
 
       document.getElementById("searchInput1").value = "";
@@ -1042,7 +1042,7 @@ async function updateData() {
       document.getElementById("xuatThanhPham").value = "";
       document.getElementById("xuatXaBan").value = "";
       document.getElementById("xuatHuy").value = "";
-      // document.getElementById("giaNhap").value;
+      document.getElementById("nhapTon").value = "";
       // document.getElementById("giaBan").value;
       document.getElementById("ghiChu").value = "";
     })
