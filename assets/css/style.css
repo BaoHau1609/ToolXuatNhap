@@ -112,16 +112,16 @@ html {
     background-color: #f0f0f0;
 }
 
-#anNhaCungCap, #anXuatThanhPham, #anXuatHuy, #anXuatDongGoi, #anXuatXaBan{
+#anNhaCungCap, #anXuatThanhPham, #anXuatHuy, #anXuatDongGoi, #anXuatXaBan, #anNhapTon{
     display: none;
 }
 
-#abc, #abc1, #abc2, #abc3, #abc4{
+#abc, #abc1, #abc2, #abc3, #abc4, #abc0{
     display: none;
     padding: 10px;
 }
 
-#abc:hover, #abc1:hover, #abc2:hover, #abc3:hover, #abc4:hover{
+#abc:hover, #abc1:hover, #abc2:hover, #abc3:hover, #abc4:hover, #abc0:hover{
     background-color: aqua;
 }
 

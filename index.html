@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/img/logo.jpg" type="hình ảnh/loại biểu tượng">
     <link rel="stylesheet" href="./assets/css/style.css">
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -30,11 +31,10 @@
         <div class="section-1" id="section-login-on-1">
             
             <div class="input-item">
-                <h4>Ngày giao dịch</h4>
-                <input type="date" id="date"/>
-
-                <h4 style="margin-top: 10px;">Date xuất</h4>
-                <input type="date" id="dateXuat"/>
+                <h4>Vị trí</h4>
+                
+                <input type="text" id="searchInput1" autocomplete="off" />
+                <div id="suggestions1"></div>
             </div>
     
             <div class="input-item">
@@ -42,13 +42,6 @@
                 
                 <input type="text" id="searchInput" autocomplete="off" />
                 <div id="suggestions"></div>
-            </div>
-
-            <div class="input-item">
-                <h4>Vị trí</h4>
-                
-                <input type="text" id="searchInput1" autocomplete="off" />
-                <div id="suggestions1"></div>
             </div>
 
             <!-- <div class="input-item">
@@ -66,16 +59,32 @@
                 <h4 onclick="showItem(1)">Ghi chú</h4>
                 <input type="text" id="ghiChu"/>
             </div>
+
+            <div class="input-item">
+                <h4>Date nhập</h4>
+                <input type="date" id="date"/>
+
+                <h4 style="margin-top: 10px;">Date xuất</h4>
+                <input type="date" id="dateXuat"/>
+            </div>
+
         </div>
         <div class="section-2" id="section-login-on-2">
             <div class="input-item">
                 <p onclick="showChosen()" id="transaction" style="background-color: white;"><i style="display: inline-flex; gap: 5px; color: rgb(66, 71, 132);">Chọn loại giao dịch<img src="./assets/icons/down-arrow.svg" alt="Icon SVG" style="width: 20px; height:20px;"/> </i></p>
+                <p onclick="showItem(0)" id="abc0">Nhập tồn</p>
                 <p onclick="showItem(1)" id="abc">Nhập nhà cung cấp</p>
                 <p onclick="showItem(2)" id="abc1">Xuất đóng gói</p>
                 <p onclick="showItem(3)" id="abc2">Xuất thành phẩm</p>
                 <p onclick="showItem(4)" id="abc3">Xuất xá bán</p>
                 <p onclick="showItem(5)" id="abc4">Xuất hủy</p>
             </div>
+
+            <div class="input-item" id="anNhapTon">
+                <h4>Nhập tồn</h4>
+                <input type="number" id="nhapTon"/>
+            </div>
+
             <div class="input-item" id="anNhaCungCap">
                 <h4>Nhập NCC</h4>
                 <input type="number" id="nhaCungCap"/>

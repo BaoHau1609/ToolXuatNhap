@@ -858,6 +858,7 @@ function showItem(x) {
   n3 = document.getElementById("anXuatThanhPham");
   n4 = document.getElementById("anXuatXaBan");
   n5 = document.getElementById("anXuatHuy");
+  n0 = document.getElementById("anNhapTon");
 
   if (x === 1) {
     n1.style.display = "block";
@@ -865,6 +866,7 @@ function showItem(x) {
     n3.style.display = "none";
     n4.style.display = "none";
     n5.style.display = "none";
+    n0.style.display = "none";
     event.stopPropagation();
   } else if (x === 2) {
     n1.style.display = "none";
@@ -872,6 +874,7 @@ function showItem(x) {
     n3.style.display = "none";
     n4.style.display = "none";
     n5.style.display = "none";
+    n0.style.display = "none";
     event.stopPropagation();
   } else if (x === 3) {
     n1.style.display = "none";
@@ -879,6 +882,7 @@ function showItem(x) {
     n3.style.display = "block";
     n4.style.display = "none";
     n5.style.display = "none";
+    n0.style.display = "none";
     event.stopPropagation();
   } else if (x === 4) {
     n1.style.display = "none";
@@ -886,6 +890,7 @@ function showItem(x) {
     n3.style.display = "none";
     n4.style.display = "block";
     n5.style.display = "none";
+    n0.style.display = "none";
     event.stopPropagation();
   } else if (x === 5) {
     n1.style.display = "none";
@@ -893,6 +898,15 @@ function showItem(x) {
     n3.style.display = "none";
     n4.style.display = "none";
     n5.style.display = "block";
+    n0.style.display = "none";
+    event.stopPropagation();
+  } else if (x === 0) {
+    n1.style.display = "none";
+    n2.style.display = "none";
+    n3.style.display = "none";
+    n4.style.display = "none";
+    n5.style.display = "none";
+    n0.style.display = "block";
     event.stopPropagation();
   }
 }
@@ -900,12 +914,14 @@ function showItem(x) {
 function showChosen() {
   if (document.getElementById("abc").style.display === "none") {
     document.getElementById("abc").style.display = "block";
+    document.getElementById("abc0").style.display = "block";
     document.getElementById("abc1").style.display = "block";
     document.getElementById("abc2").style.display = "block";
     document.getElementById("abc3").style.display = "block";
     document.getElementById("abc4").style.display = "block";
   } else {
     document.getElementById("abc").style.display = "none";
+    document.getElementById("abc0").style.display = "none";
     document.getElementById("abc1").style.display = "none";
     document.getElementById("abc2").style.display = "none";
     document.getElementById("abc3").style.display = "none";
@@ -932,6 +948,7 @@ async function updateData() {
   const ghiChu = await document.getElementById("ghiChu").value;
   const userName = await document.getElementById("username").value;
   const dateXuat = await document.getElementById("dateXuat").value;
+  const nhapTon = await document.getElementById("nhapTon").value;
 
   // Lấy ngày giờ hiện tại
   const currentDateTime = await new Date();
@@ -955,10 +972,6 @@ async function updateData() {
 
   console.log("Ngày giờ hiện tại:", formattedDateTime);
 
-  if (date === "") {
-    alert("Lỗi: Vui lòng chọn ngày!");
-    return;
-  }
   if (maHang === "") {
     alert("Lỗi: Vui lòng chọn mã hàng!");
     return;
@@ -975,7 +988,14 @@ async function updateData() {
     xuatHuy !== ""
   ) {
     if (dateXuat === "") {
-      alert("Lỗi: Vui lòng chọn ngày xuất!");
+      alert("Lỗi: Vui lòng chọn Date xuất!");
+      return;
+    }
+  }
+
+  if (nhapTon !== "" || nhaCungCap) {
+    if (date === "") {
+      alert("Lỗi: Vui lòng chọn Date nhập!");
       return;
     }
   }
@@ -995,6 +1015,7 @@ async function updateData() {
     userName: userName,
     time: formattedDateTime,
     dateXuat: dateXuat,
+    nhapTon: nhapTon,
   };
 
   console.log(data);
